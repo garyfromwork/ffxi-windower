@@ -1,5 +1,5 @@
 --[[
-Copyright © 2017, Garyfromwork of Asura
+Copyright © 2020, Garyfromwork of Asura
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -68,6 +68,11 @@ windower.register_event('status change', function(new, old)
     if new == 33 then --resting
         marker = s
     end
+end)
+
+windower.register_event('zone change', function()
+    marker = nil
+    mark.value = '0.00'
 end)
 
 windower.register_event('prerender', function()
