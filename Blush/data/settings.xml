@@ -1,0 +1,23 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <bazaar>
+            <command>Thanks for visiting my Bazaar! All prices are negotiable.</command>
+        </bazaar>
+        <blush>
+            <command>wait2; input /blush</command>
+        </blush>
+        <shocked>
+            <command>wait2; input /shocked</command>
+        </shocked>
+        <joy>
+            <command>wait2; input /joy</command>
+        </joy>
+        <jump>
+            <command>wait2; input /jump</command>
+        </jump>
+        <online_status>
+            Asleep
+        </online_status>
+    </global>
+</settings>
