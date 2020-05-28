@@ -28,7 +28,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _addon.name = 'VoidWalker'
 _addon.author = 'Garyfromwork'
-_addon.version = '1.0.0.1'
+_addon.version = '1.1.0.0'
 _addon.command = 'vw'
 
 require('tables')
@@ -113,6 +113,35 @@ windower.register_event('addon command', function(command)
             voidwalker_mode = false
         end
     end
+end)
+
+windower.register_event('incoming text', function(original, modified)
+	-- 0 = east
+	-- pi = west
+	-- 3pi/2 = north
+	-- pi/2 = south
+	-- pi/4 = southeast
+	-- 7pi/4 = northeast
+	-- 5pi/4 = northwest
+	-- 3pi/4 = southwest
+	
+	if (string.find(original:lower(), 'yalms northeast')) then
+		windower.ffxi.turn(7*math.pi/4)
+	elseif (string.find(original:lower(), 'yalms northwest')) then
+		windower.ffxi.turn(5*math.pi/4)
+	elseif (string.find(original:lower(), 'yalms southwest')) then
+		windower.ffxi.turn(3*math.pi/4)
+	elseif (string.find(original:lower(), 'yalms southeast')) then
+		windower.ffxi.turn(math.pi/4)
+	elseif (string.find(original:lower(), 'yalms east')) then
+		windower.ffxi.turn(0)
+	elseif (string.find(original:lower(), 'yalms west')) then
+		windower.ffxi.turn(math.pi)
+	elseif (string.find(original:lower(), 'yalms north')) then
+		windower.ffxi.turn(3*math.pi/2)
+	elseif (string.find(original:lower(), 'yalms south')) then
+		windower.ffxi.turn(math.pi/2)
+	end
 end)
 
 windower.register_event('load', function()
